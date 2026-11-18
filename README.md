@@ -10,6 +10,14 @@
 - 首页的定时计划卡片上可以直接开关定时暂停和定时唤醒，立即生效，可撤销
 - 最近 30 天的活动记录，包括手动操作、定时暂停和外部状态变化
 
+## 界面截图
+
+截图使用演示数据。点击图片可查看原图。
+
+| 机器总览 | 定时暂停设置 |
+| --- | --- |
+| <a href="docs/screenshots/overview.png"><img src="docs/screenshots/overview.png" alt="机器总览，显示运行状态、T3 Code 任务、定时计划和活动记录" width="320"></a> | <a href="docs/screenshots/scheduled-pause.png"><img src="docs/screenshots/scheduled-pause.png" alt="定时暂停设置，显示 T3 Code 任务等待和超时策略" width="320"></a> |
+
 ## 工作方式
 
 | 组件 | 作用 |
