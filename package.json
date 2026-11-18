@@ -6,11 +6,18 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "vite build && wrangler deploy",
+    "deploy": "npm run db:migrate:remote && wrangler deploy",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "db:migrate:local": "wrangler d1 migrations apply instabox-monitor-ce --local",
-    "db:migrate:remote": "wrangler d1 migrations apply instabox-monitor-ce --remote"
+    "db:migrate:local": "wrangler d1 migrations apply DB --local",
+    "db:migrate:remote": "wrangler d1 migrations apply DB --remote"
+  },
+  "cloudflare": {
+    "bindings": {
+      "INSTABOX_API_KEY": {
+        "description": "在 Instabox 控制台创建自己的 API Key，授予 machines:read 和 machines:write 权限。"
+      }
+    }
   },
   "dependencies": {
     "hono": "^4.13.18",
