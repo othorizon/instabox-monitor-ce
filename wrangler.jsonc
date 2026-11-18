@@ -1,0 +1,31 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "instabox-monitor-ce",
+  "main": "src/worker/index.ts",
+  "compatibility_date": "2026-10-20",
+  // 部署时添加受 Cloudflare Access 保护的自定义域名，见 README。
+  "workers_dev": false,
+  "preview_urls": false,
+  "assets": {
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  },
+  "triggers": { "crons": ["* * * * *"] },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "instabox-monitor-ce",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vars": {
+    // Zero Trust 团队域名，例如 "myteam.cloudflareaccess.com"
+    "ACCESS_TEAM_DOMAIN": "",
+    // Access 应用的 Application Audience (AUD) Tag
+    "ACCESS_AUD": "",
+    // 允许访问的邮箱，逗号分隔；留空则只依赖 Access 策略
+    "ALLOWED_EMAILS": ""
+  },
+  "observability": { "enabled": true }
+}
